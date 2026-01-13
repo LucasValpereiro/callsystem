@@ -31,7 +31,7 @@ export default function SignIn(){
                     onChange={ (e) => setPassword(e.target.value) }
                     />
 
-                    <input type='submit'value='Acessar' />
+                    <button type='submit'>Acessar</button>
                 </form>
 
                 <Link to='/register'>Criar uma conta</Link>
