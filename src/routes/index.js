@@ -13,8 +13,8 @@ function RoutesApp() {
             <Route path='/' element={ <SignIn /> } />
             <Route path='/register' element={ <SignUp /> } />
 
-            <Route path='/dashboard' element={<Private> <Dashboard /></Private> } />
-            <Route path='/profile' element={ <Profile /> } />
+            <Route path='/dashboard' element={<Private> <Dashboard/> </Private> } />
+            <Route path='/profile' element={ <Private> <Profile/> </Private> } />
         </Routes>       
     )
 }
