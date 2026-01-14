@@ -6,6 +6,8 @@ import { FiSettings, FiUpload } from 'react-icons/fi'
 import avatar from '../../assets/avatar.png';
 import { AuthContext } from '../../contexts/auth'
 
+import './profile.css';
+
 export default function Profile(){
 
     const { user } = useContext(AuthContext);
@@ -27,9 +29,9 @@ export default function Profile(){
 
             <label className='label-avatar'>
 
-             <label>
+             <span>
                 <FiUpload color='#FFF' size={25} />
-             </label>
+             </span>
 
             <input type='file' accept='image/*'/> <br/>
             {avatarUrl === null ? (
@@ -40,8 +42,21 @@ export default function Profile(){
 
             </label>
 
+            <label>Nome</label>
+
+            <input type='text' placeholder='seu nome'/>
+
+            <label>Email</label>
+
+            <input type='text' placeholder='teste@teste.com' disabled={true}/>
+
+            <button type='submit'>Salvar</button>
             </form>
 
+            </div>
+
+            <div className='container'>
+                <button className='logout-btn'>Sair</button>
             </div>
 
             </div>
