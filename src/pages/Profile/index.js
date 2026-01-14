@@ -10,9 +10,10 @@ import './profile.css';
 
 export default function Profile(){
 
-    const { user, storageUser, setUser } = useContext(AuthContext);
+    const { user, storageUser, setUser, logout } = useContext(AuthContext);
     const [nome, setNome] = useState(user && user.nome)
     const [email, setEmail] = useState(user && user.email)
+
 
     const [avatarUrl, setAvatarUrl] = useState(user && user.avatarUrl);
 
@@ -58,7 +59,7 @@ export default function Profile(){
             </div>
 
             <div className='container'>
-                <button className='logout-btn'>Sair</button>
+                <button className='logout-btn' onClick={ () => logout() }>Sair</button>
             </div>
 
             </div>
