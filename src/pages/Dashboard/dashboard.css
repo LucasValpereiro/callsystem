@@ -77,6 +77,10 @@ table td .badge{
     color: #FFF;
 }
 
+.dashboard span{
+
+}
+
 @media screen and (max-width: 600px) {
     table{
         border: 0;
