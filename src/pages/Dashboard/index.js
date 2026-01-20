@@ -91,6 +91,11 @@ export default function Dashboard() {
 
   }
 
+  function toggleModal(item){
+    setShowPostModal(!showPostModal)
+    setDetail(item)
+  }
+
   if(loading){
     return(
         <div>
@@ -164,6 +169,7 @@ export default function Dashboard() {
                           <button
                             className="action"
                             style={{ backgroundColor: "#3583f6" }}
+                          onClick={() => toggleModal(item)}
                           >
                             <FiSearch color="#FFF" size={17} />
                           </button>
@@ -188,7 +194,10 @@ export default function Dashboard() {
       </div>
 
           {showPostModal && (
-            <Modal />
+            <Modal 
+              conteudo={ detail }
+              close={ () => setShowPostModal(!showPostModal) }
+            />
           )}
 
     </div>

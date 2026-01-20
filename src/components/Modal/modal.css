@@ -64,3 +64,8 @@
     line-height: 150%;
 }
 
+.status-badge{
+    margin-left: 1em;
+    border-radius: 2px; 
+}
+
