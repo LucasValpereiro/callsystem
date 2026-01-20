@@ -25,6 +25,9 @@ export default function Dashboard() {
   const [isEmpty, setIsEmpty] = useState(false);
   const [lastDocs, setLastDocs] = useState();
   const [loadingMore, setLoadingMore] = useState(false);
+
+  const [showPostModal, setShowPostModal] = useState(false);
+  const [detail, setDetail] = useState();
  
 
 
@@ -184,7 +187,9 @@ export default function Dashboard() {
         </>
       </div>
 
-          <Modal/>
+          {showPostModal && (
+            <Modal />
+          )}
 
     </div>
   );
