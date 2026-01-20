@@ -150,7 +150,7 @@ export default function Dashboard() {
                         <td data-label="Status">
                           <span
                             className="badge"
-                            style={{ backgroundColor: "#999" }}
+                            style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : item.status === 'Atendido' ? '#3583f6' : '#999' }}
                           >
                             {item.status}
                           </span>
