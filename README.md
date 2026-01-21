@@ -24,29 +24,33 @@ CallSystem é uma aplicação web para gerenciamento de tickets/chamados de supo
 
 ## 🖼️ Screenshots
 
+<div align="center">
+
 ### Tela de Login
-![Tela de Login](./screenshots/login.png)
+<img src="./screenshots/login.png" alt="Tela de Login" width="600"/>
 
 ### Tela de Cadastro
-![Tela de Cadastro](./screenshots/cadastro.png)
+<img src="./screenshots/cadastro.png" alt="Tela de Cadastro" width="600"/>
 
 ### Dashboard de Chamados
-![Dashboard](./screenshots/dashboard.png)
+<img src="./screenshots/dashboard.png" alt="Dashboard" width="800"/>
 
 ### Detalhes do Chamado
-![Detalhes](./screenshots/detalhes.png)
+<img src="./screenshots/detalhes.png" alt="Detalhes do Chamado" width="600"/>
 
 ### Novo Chamado
-![Novo Chamado](./screenshots/novo-chamado.png)
+<img src="./screenshots/novo-chamado.png" alt="Novo Chamado" width="600"/>
 
 ### Editar Chamado
-![Editar Chamado](./screenshots/editar-chamado.png)
+<img src="./screenshots/editar-chamado.png" alt="Editar Chamado" width="600"/>
 
 ### Cadastro de Clientes
-![Clientes](./screenshots/clientes.png)
+<img src="./screenshots/clientes.png" alt="Cadastro de Clientes" width="600"/>
 
 ### Perfil do Usuário
-![Perfil](./screenshots/perfil.png)
+<img src="./screenshots/perfil.png" alt="Perfil" width="600"/>
+
+</div>
 
 ## 🛠️ Tecnologias Utilizadas
 
