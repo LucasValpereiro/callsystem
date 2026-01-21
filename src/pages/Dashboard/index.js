@@ -6,13 +6,21 @@ import Title from "../../components/Title";
 import { FiPlus, FiMessageSquare, FiSearch, FiEdit2 } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
-import { collection, getDocs, orderBy, limit, startAfter, query} from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  orderBy,
+  limit,
+  startAfter,
+  query,
+} from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 
-import { format } from 'date-fns';
-import Modal from '../../components/Modal';
+import { format } from "date-fns";
+import Modal from "../../components/Modal";
 
 import "./dashboard.css";
+import { union, uniqBy } from "lodash";
 
 const listRef = collection(db, "chamados");
 
@@ -28,15 +36,12 @@ export default function Dashboard() {
 
   const [showPostModal, setShowPostModal] = useState(false);
   const [detail, setDetail] = useState();
- 
-
 
   useEffect(() => {
     async function loadChamados() {
       const q = query(listRef, orderBy("created", "desc"), limit(5));
 
       const querySnapshot = await getDocs(q);
-        setChamados([]); // Não duplicar os chamados, alternativa excluir o strictmode no index.js principal
 
       await updateState(querySnapshot);
 
@@ -44,8 +49,6 @@ export default function Dashboard() {
     }
 
     loadChamados();
-
-    return () => {};
   }, []);
 
   async function updateState(querySnapshot) {
@@ -61,59 +64,59 @@ export default function Dashboard() {
           cliente: doc.data().cliente,
           clienteId: doc.data().clienteId,
           created: doc.data().created,
-          createdFormat: format(doc.data().created.toDate(), 'dd/MM/yyyy'),
+          createdFormat: format(doc.data().created.toDate(), "dd/MM/yyyy"),
           status: doc.data().status,
           complemento: doc.data().complemento,
         });
       });
 
-      const lastDoc = querySnapshot.docs[querySnapshot.docs.length - 1] // Pegando o último item.
+      const lastDoc = querySnapshot.docs[querySnapshot.docs.length - 1]; // Pegando o último item.
 
-      setChamados((chamados) => [...chamados, ...lista]);
+      setChamados((chamados) =>
+        uniqBy([...chamados, ...lista], (data) => data.id)
+      );
       setLastDocs(lastDoc);
-    
-    
-    
     } else {
       setIsEmpty(true);
     }
 
     setLoadingMore(false);
-
   }
 
   async function handleMore() {
     setLoadingMore(true);
 
-    const q = query(listRef, orderBy("created", "desc"), startAfter(lastDocs), limit(5));
+    const q = query(
+      listRef,
+      orderBy("created", "desc"),
+      startAfter(lastDocs),
+      limit(5)
+    );
     const querySnapshot = await getDocs(q);
     await updateState(querySnapshot);
-
   }
 
-  function toggleModal(item){
-    setShowPostModal(!showPostModal)
-    setDetail(item)
+  function toggleModal(item) {
+    setShowPostModal(!showPostModal);
+    setDetail(item);
   }
 
-  if(loading){
-    return(
-        <div>
-            <Header/>
-            <div className="content">
-                <Title name="Tickets">
-                    <FiMessageSquare size={25} />
-                </Title>
+  if (loading) {
+    return (
+      <div>
+        <Header />
+        <div className="content">
+          <Title name="Tickets">
+            <FiMessageSquare size={25} />
+          </Title>
 
-                <div className="container dashbaord">
-                    <span>Buscando chamados...</span>
-                </div>
-            </div>
-
+          <div className="container dashbaord">
+            <span>Buscando chamados...</span>
+          </div>
         </div>
-    )
+      </div>
+    );
   }
-
 
   return (
     <div>
@@ -159,7 +162,14 @@ export default function Dashboard() {
                         <td data-label="Status">
                           <span
                             className="badge"
-                            style={{ backgroundColor: item.status === 'Aberto' ? '#5cb85c' : item.status === 'Atendido' ? '#3583f6' : '#999' }}
+                            style={{
+                              backgroundColor:
+                                item.status === "Aberto"
+                                  ? "#5cb85c"
+                                  : item.status === "Atendido"
+                                  ? "#3583f6"
+                                  : "#999",
+                            }}
                           >
                             {item.status}
                           </span>
@@ -169,11 +179,12 @@ export default function Dashboard() {
                           <button
                             className="action"
                             style={{ backgroundColor: "#3583f6" }}
-                          onClick={() => toggleModal(item)}
+                            onClick={() => toggleModal(item)}
                           >
                             <FiSearch color="#FFF" size={17} />
                           </button>
-                          <Link to={`/new/${item.id}`}
+                          <Link
+                            to={`/new/${item.id}`}
                             className="action"
                             style={{ backgroundColor: "#f6a935" }}
                           >
@@ -187,19 +198,22 @@ export default function Dashboard() {
               </table>
 
               {loadingMore && <h3>Buscando mais chamados...</h3>}
-              {!loadingMore && !isEmpty && <button className="btn-more" onClick={handleMore}>Buscar mais</button>}
+              {!loadingMore && !isEmpty && (
+                <button className="btn-more" onClick={handleMore}>
+                  Buscar mais
+                </button>
+              )}
             </>
           )}
         </>
       </div>
 
-          {showPostModal && (
-            <Modal 
-              conteudo={ detail }
-              close={ () => setShowPostModal(!showPostModal) }
-            />
-          )}
-
+      {showPostModal && (
+        <Modal
+          conteudo={detail}
+          close={() => setShowPostModal(!showPostModal)}
+        />
+      )}
     </div>
   );
 }
