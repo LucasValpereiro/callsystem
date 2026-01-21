@@ -2,7 +2,11 @@
 
 Sistema de gerenciamento de chamados técnicos desenvolvido com React e Firebase.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/acb20a32-eb7e-4acc-9ad0-9ea0ac68f875/deploy-status)](https://app.netlify.com/projects/valpercallsystem/deploys)
+![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 ## 🚀 Demonstração
 
