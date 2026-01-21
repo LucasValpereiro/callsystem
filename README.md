@@ -27,28 +27,28 @@ CallSystem é uma aplicação web para gerenciamento de tickets/chamados de supo
 <div align="center">
 
 ### Tela de Login
-<img src="./screenshots/login.png" alt="Tela de Login" width="600"/>
+<img src="./login.png" alt="Tela de Login" width="600"/>
 
 ### Tela de Cadastro
-<img src="./screenshots/cadastro.png" alt="Tela de Cadastro" width="600"/>
+<img src="./cadastro.png" alt="Tela de Cadastro" width="600"/>
 
 ### Dashboard de Chamados
-<img src="./screenshots/dashboard.png" alt="Dashboard" width="800"/>
+<img src="./dashboard.png" alt="Dashboard" width="800"/>
 
 ### Detalhes do Chamado
-<img src="./screenshots/detalhes.png" alt="Detalhes do Chamado" width="600"/>
+<img src="./detalhes.png" alt="Detalhes do Chamado" width="600"/>
 
 ### Novo Chamado
-<img src="./screenshots/novo-chamado.png" alt="Novo Chamado" width="600"/>
+<img src="./novo-chamado.png" alt="Novo Chamado" width="600"/>
 
 ### Editar Chamado
-<img src="./screenshots/editar-chamado.png" alt="Editar Chamado" width="600"/>
+<img src="./editar-chamado.png" alt="Editar Chamado" width="600"/>
 
 ### Cadastro de Clientes
-<img src="./screenshots/clientes.png" alt="Cadastro de Clientes" width="600"/>
+<img src="./clientes.png" alt="Cadastro de Clientes" width="600"/>
 
 ### Perfil do Usuário
-<img src="./screenshots/perfil.png" alt="Perfil" width="600"/>
+<img src="./perfil.png" alt="Perfil" width="600"/>
 
 </div>
 
